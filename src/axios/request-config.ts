@@ -1,4 +1,4 @@
-import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
+import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from "axios";
 import {
   requestInterceptorsConfig,
   requestInterceptorsError,
@@ -27,7 +27,7 @@ export class AxiosClientClass {
   }
 
   // 封装get请求
-  get<P, R>(url: string, params?: P, config?: AxiosRequestConfig): Promise<R> {
+  get<P, R>(url: string, params?: P, config?: AxiosRequestConfig): Promise<AxiosResponse<R>> {
     return this.instance.get(url, { params, ...config });
   }
 
@@ -52,7 +52,7 @@ export class AxiosClientClass {
 }
 
 export const axiosInstance = new AxiosClientClass({
-  baseURL: "http://localhost:8080",
+  // baseURL: "http://localhost:8080",
   timeout: 6000,
   headers: {
     "Content-Type": "application/json",

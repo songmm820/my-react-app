@@ -7,7 +7,7 @@ import type { AxiosResponse } from "axios";
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const responseInterceptorsConfig = (response: AxiosResponse<any, unknown>) => {
-  return response.data;
+  return response?.data;
 };
 
 /**

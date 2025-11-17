@@ -11,4 +11,13 @@ export default defineConfig({
       "~": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      "/bing-api": {
+        target: "https://cn.bing.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/bing-api/, ""),
+      },
+    },
+  },
 });
