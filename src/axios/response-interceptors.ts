@@ -1,4 +1,4 @@
-import type { AxiosResponse } from "axios";
+import type { AxiosResponse } from 'axios';
 
 // 业务响应格式（根据你的后端调整）
 export interface BizResponse<T> {
@@ -9,13 +9,13 @@ export interface BizResponse<T> {
 }
 
 export class BizError extends Error {
-  public response?: AxiosResponse;
+    public response?: AxiosResponse;
 
-  constructor(message: string, response?: AxiosResponse) {
-    super(message);
-    this.name = "BizError";
-    this.response = response;
-  }
+    constructor(message: string, response?: AxiosResponse) {
+        super(message);
+        this.name = 'BizError';
+        this.response = response;
+    }
 }
 
 /**
@@ -24,9 +24,9 @@ export class BizError extends Error {
  * 可以对响应数据进行处理
  */
 const responseInterceptorsConfig = <T>(
-  response: AxiosResponse<BizResponse<T>>
+    response: AxiosResponse<BizResponse<T>>
 ) => {
-  return response?.data;
+    return response?.data;
 };
 
 /**
@@ -35,7 +35,7 @@ const responseInterceptorsConfig = <T>(
  * 可以对响应错误进行处理
  */
 const responseInterceptorsError = (error: BizError) => {
-  return Promise.reject(error);
+    return Promise.reject(error);
 };
 
 export { responseInterceptorsConfig, responseInterceptorsError };

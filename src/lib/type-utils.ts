@@ -45,7 +45,7 @@ export type GetFunctionParameterType<
 > = T extends (...args: infer P) => any ? P[K] : never;
 
 /** 获取组件的Ref类型 */
-export type GetRefType<T extends React.ComponentType<any>> = GetProp<T, "ref">;
+export type GetRefType<T extends React.ComponentType<any>> = GetProp<T, 'ref'>;
 
 
 /** 获取一个函数的完整类型 */

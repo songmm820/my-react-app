@@ -1,4 +1,4 @@
-import type { InternalAxiosRequestConfig } from "axios";
+import type { InternalAxiosRequestConfig } from 'axios';
 
 /**
  * 请求拦截器配置
@@ -7,7 +7,7 @@ import type { InternalAxiosRequestConfig } from "axios";
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const requestInterceptorsConfig = (config: InternalAxiosRequestConfig<any>) => {
-  return config;
+    return config;
 };
 
 /**
@@ -15,7 +15,7 @@ const requestInterceptorsConfig = (config: InternalAxiosRequestConfig<any>) => {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const requestInterceptorsError = (error: any) => {
-  return Promise.reject(error);
+    return Promise.reject(error);
 };
 
 export { requestInterceptorsConfig, requestInterceptorsError };

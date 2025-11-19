@@ -1,5 +1,5 @@
-import React, { useEffect, useLayoutEffect } from "react";
-import { useNavigateSafe } from "~/hooks/use-navigate";
+import React, { useEffect, useLayoutEffect } from 'react';
+import { useNavigateSafe } from '~/hooks/use-navigate';
 
 /**
  * 一个权限控制路由组件
@@ -15,28 +15,28 @@ type PrivateRouteProps = {
 };
 
 export function PrivateRoute(props: PrivateRouteProps) {
-  const { children, title, isRequiredAuth = true } = props;
+    const { children, title, isRequiredAuth = true } = props;
 
-  // Hook for navigation
-  const navigate = useNavigateSafe();
+    // Hook for navigation
+    const navigate = useNavigateSafe();
 
-  useEffect(() => {
-    if (!title) return;
-    const originalTitle = document.title;
-    document.title = title;
-    return () => {
-      document.title = originalTitle;
-    };
-  }, [title]);
+    useEffect(() => {
+        if (!title) return;
+        const originalTitle = document.title;
+        document.title = title;
+        return () => {
+            document.title = originalTitle;
+        };
+    }, [title]);
 
-  useLayoutEffect(() => {
+    useLayoutEffect(() => {
     // 如果需要权限认证，并且本地存储中没有认证信息，则跳转到登录页面
-    if (isRequiredAuth) {
-      return navigate("*");
-    }
-  }, [isRequiredAuth, navigate]);
+        if (isRequiredAuth) {
+            return navigate('*');
+        }
+    }, [isRequiredAuth, navigate]);
 
-  return children;
+    return children;
 }
 
 export default PrivateRoute;
