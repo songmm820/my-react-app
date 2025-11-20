@@ -30,6 +30,10 @@ export default defineConfig([
             'no-var': 'error',
             // 警告未使用的变量
             '@typescript-eslint/no-unused-vars': 'warn',
+            // 数组声明的方式 Array<T>
+            '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+            // 禁止 for in 数组
+            '@typescript-eslint/no-for-in-array': 'error',
             // tab 键使用 4 个空格
             indent: ['error', 4, { SwitchCase: 1 }]
         },
