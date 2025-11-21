@@ -1,13 +1,12 @@
-import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import Home from '~/pages/Home';
-import LazyRoute from '~/router/LazyRoute';
-import type { TypedRouteObject } from '~/types/route';
+import { lazy } from 'react'
+import { createBrowserRouter } from 'react-router-dom'
+import LazyRoute from '~/router/LazyRoute'
+import type { TypedRouteObject } from '~/types/route'
 
-const routes: TypedRouteObject[] = [
+const routes: Array<TypedRouteObject> = [
     {
         path: '/',
-        element: <Home />
+        element: <LazyRoute title="Home" isRequiredAuth={false} lazyChildren={lazy(() => import('~/pages/Home'))} />
     },
     {
         path: '/about',
@@ -19,14 +18,8 @@ const routes: TypedRouteObject[] = [
     },
     {
         path: '*',
-        element: (
-            <LazyRoute
-                title="404"
-                isRequiredAuth={false}
-                lazyChildren={lazy(() => import('~/pages/404'))}
-            />
-        )
+        element: <LazyRoute title="404" isRequiredAuth={false} lazyChildren={lazy(() => import('~/pages/404'))} />
     }
-];
+]
 
-export const router = createBrowserRouter(routes);
+export const router = createBrowserRouter(routes)

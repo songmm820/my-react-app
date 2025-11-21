@@ -34,6 +34,7 @@ export default defineConfig([
             '@typescript-eslint/array-type': ['error', { default: 'generic' }],
             // 禁止 for in 数组
             '@typescript-eslint/no-for-in-array': 'error',
+            '@typescript-eslint/no-empty-object-type': 'warn',
             // tab 键使用 4 个空格
             indent: ['error', 4, { SwitchCase: 1 }]
         },
