@@ -1,7 +1,9 @@
+import AppIcon from '~/components/features/AppIcon'
 import { Button } from '~/components/ui/button'
 import { useNavigateSafe } from '~/hooks/use-navigate'
 import { isExistManifest, isHttpsOrLocalhost, isPWA } from '~/lib/app'
 import { PRIMARY_COLORS } from '~/lib/color'
+import plugins from '~/plugins'
 import { useTheme } from '~/provider/theme-provider'
 
 const Home = () => {
@@ -32,6 +34,10 @@ const Home = () => {
             <p>是否是isSecureContext：{isHttpsOrLocalhost ? '是' : '否'}</p>
             <p>是否存在 Manifest 链接：{isExistManifest() ? '是' : '否'}</p>
             <p>是否已安装 PWA 应用：{isPWA() ? '是' : '否'}</p>
+
+            {plugins.map((plugin, index) => (
+                <AppIcon key={index} name={plugin.name} icon={plugin.icon} />
+            ))}
         </div>
     )
 }

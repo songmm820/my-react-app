@@ -16,8 +16,8 @@ export default defineConfig([
             reactRefresh.configs.vite
         ],
         rules: {
-            // 使用单引号
-            quotes: ['error', 'single'],
+            // 使用单引号,除了属性值
+            quotes: ['error', 'single', { avoidEscape: true }],
             // console 警告
             'no-console': 'warn',
             // 关闭单个文件仅只能导出一个组件的规则
@@ -34,6 +34,7 @@ export default defineConfig([
             '@typescript-eslint/array-type': ['error', { default: 'generic' }],
             // 禁止 for in 数组
             '@typescript-eslint/no-for-in-array': 'error',
+            // 禁止空对象类型
             '@typescript-eslint/no-empty-object-type': 'warn',
             // tab 键使用 4 个空格
             indent: ['error', 4, { SwitchCase: 1 }]
