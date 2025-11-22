@@ -6,5 +6,5 @@ export type RoutePath = '/' | '*' | '/about' | `/user/${string}`;
  */
 export type TypedRouteObject = Omit<RouteObject, 'path' | 'children'> & {
   path: RoutePath;
-  children?: TypedRouteObject[];
+  children?: Array<TypedRouteObject>;
 };
